@@ -4,9 +4,6 @@
 [submodule "Taller1CondicionalesPython"]
 	path = Taller1CondicionalesPython
 	url = https://github.com/2024-2-Tecnicas-1/Taller1CondicionalesPython.git
-[submodule "taller-1-condicionales-java-13rianVargas"]
-	path = taller-1-condicionales-java-13rianVargas
-	url = https://github.com/2024-2-Tecnicas-1/taller-1-condicionales-java-13rianVargas.git
-[submodule "taller-1-condicionales-python-13rianVargas"]
-	path = taller-1-condicionales-python-13rianVargas
-	url = https://github.com/2024-2-Tecnicas-1/taller-1-condicionales-python-13rianVargas.git
+[submodule "taller-1-condicionales-python-v1-13rianVargas"]
+	path = taller-1-condicionales-python-v1-13rianVargas
+	url = https://github.com/2024-2-Tecnicas-1/taller-1-condicionales-python-v1-13rianVargas.git
