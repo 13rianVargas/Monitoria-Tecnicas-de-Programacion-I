@@ -32,8 +32,8 @@ bash_process = subprocess.Popen('/bin/bash', stdin=subprocess.PIPE, stdout=subpr
 # Lista de comandos que se van a ejecutar secuencialmente
 comandos = [
     f'echo {token_seguro} | gh auth login --with-token', # Autenticación
-    'cd /Users/brian/Documents', # Cambiar directorio
-    'rm -rf cloned_repositories', # Borra el directorio con antiguos repositorios clonados (optional)
+    'cd ~/Documents/', # Navegar a Documents
+    'rm -rf cloned_repositories', # Borra el directorio con antiguos repositorios clonados si existe (optional)
     'mkdir -p cloned_repositories', #  Crea el nuevo directorio para clonar repositorios
     'cd cloned_repositories', # Cambiar directorio
     f'gh classroom clone student-repos -a {assignment_id}' #Clona los repositorios
