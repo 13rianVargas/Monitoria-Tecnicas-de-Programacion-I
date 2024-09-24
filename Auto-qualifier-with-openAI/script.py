@@ -1,8 +1,19 @@
 import subprocess
 import shlex
 
+#Se pueden generar 2 PAT, Classic o Fine-grained, el clasico puede ponerse sin límite de tiempo, el detallado tiene límite.
+#Classic PAT Permissions => (repo), (read:org), (admin:org).
+#Fine-grained PAT Permissions => n/a.
 ruta_archivo = '/Users/brian/Documents/GitHub/Monitoria-Tecnicas-de-Programacion-I/Auto-qualifier-with-openAI/token.txt'
-#classroom_id = '177469998' #ID del classroom,pero aún no implemento esto
+
+# Para obtener el classroom_id hay que ejecutar los siguientes comandos
+# echo TU_PAT | gh auth login --with-token
+# gh classroom list
+classroom_id = '228739' #2024-2 Tecnicas 1 - Grupo 2 #TODO: Esta variable no se está usando.
+
+# Para obtener el assignment_id hay que ejecutar el siguiente comando
+# gh classroom assignments
+assignment_id = '646591' #Calculadora Java
 
 def leer_token(ruta_archivo):
     with open(ruta_archivo, 'r') as archivo:
@@ -11,7 +22,6 @@ def leer_token(ruta_archivo):
 
 # Leer y usar el token
 token = leer_token(ruta_archivo)
-#print(f"El token leído es: {token}") #Prueba de lectura token
 
 # Proteger el token en caso de que tenga caracteres especiales
 token_seguro = shlex.quote(token)
@@ -21,12 +31,12 @@ bash_process = subprocess.Popen('/bin/bash', stdin=subprocess.PIPE, stdout=subpr
 
 # Lista de comandos que se van a ejecutar secuencialmente
 comandos = [
-    f'echo {token_seguro} | gh auth login --with-token',                                # Autenticación
-    'cd /Users/brian/Documents',                                                        # Cambiar directorio
-    'mkdir -p cloned_repositories',                                                     # Crear un directorio
-    'cd cloned_repositories',                                                           # Cambiar directorio
-    'echo "2024-2 Tecnicas 1 - Grupo 2" | gh classroom clone student-repos',            # TODO: Revisar como seleccionar el assigment
-    #'gh classroom clone "2024-2 Tecnicas 1 - Grupo 2" --assignment "Calculadora Java"', # Primer intento fallido --asingment no sirve, hay que conseguir el assingment_ID
+    f'echo {token_seguro} | gh auth login --with-token', # Autenticación
+    'cd /Users/brian/Documents', # Cambiar directorio
+    'rm -rf cloned_repositories', # Borra el directorio con antiguos repositorios clonados (optional)
+    'mkdir -p cloned_repositories', #  Crea el nuevo directorio para clonar repositorios
+    'cd cloned_repositories', # Cambiar directorio
+    f'gh classroom clone student-repos -a {assignment_id}' #Clona los repositorios
 ]
 
 # Unir los comandos en un solo string, separados por nuevas líneas
