@@ -1,4 +1,8 @@
 
-.DS_Store
+.metadata/
 
-token.txt
+.vscode/
+
+/bin/
+
+.DS_Store
