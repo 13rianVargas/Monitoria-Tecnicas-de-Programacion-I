@@ -1,6 +1,3 @@
-[submodule "Taller1CondicionalesJava"]
-	path = Taller1CondicionalesJava
-	url = https://github.com/2024-2-Tecnicas-1/Taller1CondicionalesJava.git
 [submodule "Taller1CondicionalesPython"]
 	path = Taller1CondicionalesPython
 	url = https://github.com/2024-2-Tecnicas-1/Taller1CondicionalesPython.git
