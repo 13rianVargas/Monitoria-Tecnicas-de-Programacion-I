@@ -1,4 +1,8 @@
 
+*.class
+
+target/
+
 .metadata/
 
 .vscode/
